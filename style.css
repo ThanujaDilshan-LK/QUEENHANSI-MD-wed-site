@@ -1,0 +1,94 @@
+body {
+    background-color: #0a0a0a;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* Floating Ghost Background Effect */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+.app-icon {
+    font-size: 80px;
+    animation: float 3s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* RGB Button Effect */
+.rgb-btn, .rgb-btn-small {
+    padding: 15px 35px;
+    font-size: 18px;
+    background: #111;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    border-radius: 10px;
+}
+
+.rgb-btn::after, .rgb-input-box::after {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    z-index: -1;
+    animation: rgb-animation 20s linear infinite;
+    border-radius: 12px;
+}
+
+/* RGB Input Box */
+.rgb-input-box {
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background: #000;
+    border-radius: 10px;
+}
+
+input {
+    background: #222;
+    border: none;
+    color: white;
+    padding: 10px;
+    outline: none;
+}
+
+@keyframes rgb-animation {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hidden { display: none; }
